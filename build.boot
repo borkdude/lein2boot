@@ -21,4 +21,3 @@
  repl {:init-ns 'animals.repl}
  cljs {:source-paths #{"src-cljs"}})
 
-

@@ -6,8 +6,6 @@
    [cljs.core.async :refer (<!)]
    [schema.core :as s]))
 
-(enable-console-print!)
-
 (def Animals
   "A schema for animals state"
   #{{:id s/Int
@@ -121,7 +119,4 @@
             ^{:key (str "animal-row-" (:id a))}
             [animal-row a])
           (sort-by :name @animals-state))
-     [animal-form]]]])
-
-(reagent/render-component [animals]
-                          (js/document.getElementById "app"))
+     [animal-form]]]]) 
