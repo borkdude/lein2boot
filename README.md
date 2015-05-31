@@ -61,6 +61,13 @@ Browse to
 
 Run with `java -jar target/animals-1.0.0.jar [<port>]`
 
+## Credits
+
+Thanks to
+
+- [Alan Dipert](https://github.com/alandipert) for general help and fixing [issue 210](https://github.com/boot-clj/boot/issues/210) of [boot-clj](http://boot-clj.com/). 
+- [Martin Klepsch](https://github.com/martinklepsch) for general help
+
 ## License
 
 Copyright Michiel Borkent
