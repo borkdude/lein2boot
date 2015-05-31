@@ -25,14 +25,14 @@
 
   :cljsbuild {:builds {:dev {:source-paths ["src-cljs" "src-cljs-dev"]
                              :figwheel {:on-jsload "animals.main/fig-reload"}
-                             :compiler {:output-to "resources/public/crud.js"
+                             :compiler {:output-to "resources/public/main.js"
                                         :output-dir "resources/public/out"
                                         :optimizations :none
                                         :asset-path "out"
                                         :main "animals.main"
                                         :source-map true}}
                        :prod {:source-paths ["src-cljs" "src-cljs-prod"]                              
-                              :compiler {:output-to "resources/public/crud.js"                                         
+                              :compiler {:output-to "resources/public/main.js"                                         
                                          :optimizations :advanced}}}}
 
   :repl-options {:init-ns animals.repl}

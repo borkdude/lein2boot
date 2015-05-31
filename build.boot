@@ -1,5 +1,5 @@
 (set-env!
- :source-paths #{"src"}
+ :source-paths #{"src" "src-cljs"}
  :resource-paths #{"resources"}
  :dependencies '[[org.clojure/clojure "1.6.0"]
                  [org.clojure/clojurescript "0.0-3211"]
@@ -16,25 +16,28 @@
                  [adzerk/boot-cljs "0.0-3269-2" :scope "test"]
                  [adzerk/boot-cljs-repl "0.1.9" :scope "test"]
                  [adzerk/boot-reload "0.2.6" :scope "test"]
+                 [pandeiro/boot-http "0.6.3-SNAPSHOT" :scope "test"]
                  ])
 
 (require '[adzerk.boot-cljs :refer :all])
 (require '[adzerk.boot-cljs-repl :refer :all])
 (require '[adzerk.boot-reload :refer :all])
+(require '[adzerk.boot-reload :refer :all])
+(require '[pandeiro.boot-http :refer :all])
+(require '[animals.api])
 
-(task-options!
+#_(task-options!
  repl {:init-ns 'animals.repl})
 
-(deftask dev-cljs []
+(deftask dev []
   (set-env!
-   :source-paths #{"src-cljs" "src-cljs-dev"})
+   :source-paths #(conj % "src-cljs-dev"))
   (comp
+   (serve :handler 'animals.api/handler
+          :reload true
+          :dir "target/"
+          :init 'animals.api/init)
    (watch)
+   (reload :on-jsload 'animals.main/fig-reload)
    (cljs-repl)
-   (cljs :compiler-options {:output-to "resources/public/crud.js"
-                            :output-dir "resources/public/out"
-                            :optimizations :none
-                            :asset-path "out"
-                            :main "animals.main"
-                            :source-map true})
-   (reload :on-jsload 'animals.main/fig-reload)))
+   (cljs)))

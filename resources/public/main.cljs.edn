@@ -1,0 +1,2 @@
+{:require [animals.main]
+ :compiler-options {:asset-path "out"}}
