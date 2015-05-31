@@ -1,4 +1,9 @@
-# Animals CRUD
+# lein2boot
+
+This is a sample project that demonstrates how to achieve the same development and build process in leiningen and boot. The project supports code reloading on the server and on the client.
+
+The project has a client side part written in ClojureScript and Reagent.
+The server side part is a Ring handler served by Jetty. 
 
 ## Leiningen
 
