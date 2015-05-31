@@ -1,4 +1,4 @@
-(ns animals.repl
+(ns animals.server
   (:require [ring.server.standalone :refer [serve]])
   (:require [animals.api :refer [handler init]]))
 

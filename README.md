@@ -24,7 +24,11 @@ and have fun.
 
 ### Package as uberjar
 
-TODO
+    lein clean
+    lein cljsbuild once prod
+    lein uberjar
+
+Run with `java -jar <uberjar>.jar [<port>]`
 
 ## Boot
 

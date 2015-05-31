@@ -12,8 +12,8 @@ target
 .nrepl-port
 .repl/
 repl/
-resources/public/crud.js
 figwheel_server.log
 /.boot/
 /.nrepl-history
 /blog.org
+/assets/main.js

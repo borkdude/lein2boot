@@ -37,6 +37,10 @@
                               :compiler {:output-to "assets/main.js"                                         
                                          :optimizations :advanced}}}}
 
-  :repl-options {:init-ns animals.repl}
+  :repl-options {:init-ns animals.server}
 
-  :global-vars {*print-length* 20})
+  :global-vars {*print-length* 20}
+
+  :main animals.uberjar
+
+  :aot [animals.uberjar])
