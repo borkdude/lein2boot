@@ -1,6 +1,11 @@
 (defproject animals "1.0.0"
   :description "FIXME: write this!"
   :url "http://example.com/FIXME"
+  
+  :source-paths ["src"]
+  :resource-paths ["assets" "out"]
+  :clean-targets ^{:protect false} [:target-path :compile-path "out"]
+  
   :dependencies [[org.clojure/clojure "1.6.0"]
                  [org.clojure/clojurescript "0.0-3211"]
                  [org.clojure/core.async "0.1.346.0-17112a-alpha"]
@@ -13,12 +18,11 @@
                  [clj-json "0.5.3"]
                  [reagent "0.5.0"]
                  [prismatic/schema "0.4.3"]]
+  
 
-  :resource-paths ["assets" "out"]
+  :repl-options {:init-ns animals.server}
 
-  :clean-targets ^{:protect false} [:target-path :compile-path "out"]
-
-  :source-paths ["src"]
+  :global-vars {*print-length* 20}
 
   :aliases {"build" ["do" "clean" ["cljsbuild" "once" "prod"] "uberjar"]}
 
@@ -39,10 +43,5 @@
                               :compiler {:output-to "out/main.js"                                         
                                          :optimizations :advanced}}}}
 
-  :repl-options {:init-ns animals.server}
-
-  :global-vars {*print-length* 20}
-
-  :main animals.uberjar
-
-  :aot [animals.uberjar])
+  :aot [animals.uberjar]
+  :main animals.uberjar)

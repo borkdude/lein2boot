@@ -27,7 +27,9 @@
 (require '[animals.api])
 
 (task-options!
- repl {:init-ns 'animals.repl})
+ repl {:init-ns 'animals.server})
+
+(alter-var-root (var *print-length*) (fn [v] 20))
 
 (deftask dev []
   (set-env!
