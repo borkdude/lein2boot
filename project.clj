@@ -14,7 +14,9 @@
                  [reagent "0.5.0"]
                  [prismatic/schema "0.4.3"]]
 
-  :clean-targets ^{:protect false} [:target-path :compile-path "resources/public/out"]
+  :resource-paths ["assets"]
+
+  :clean-targets ^{:protect false} [:target-path :compile-path "assets/out"]
 
   :source-paths ["src"]
 
@@ -25,14 +27,14 @@
 
   :cljsbuild {:builds {:dev {:source-paths ["src-cljs" "src-cljs-dev"]
                              :figwheel {:on-jsload "animals.main/fig-reload"}
-                             :compiler {:output-to "resources/public/main.js"
-                                        :output-dir "resources/public/out"
+                             :compiler {:output-to "assets/main.js"
+                                        :output-dir "assets/out"
                                         :optimizations :none
                                         :asset-path "out"
                                         :main "animals.main"
                                         :source-map true}}
                        :prod {:source-paths ["src-cljs" "src-cljs-prod"]                              
-                              :compiler {:output-to "resources/public/main.js"                                         
+                              :compiler {:output-to "assets/main.js"                                         
                                          :optimizations :advanced}}}}
 
   :repl-options {:init-ns animals.repl}

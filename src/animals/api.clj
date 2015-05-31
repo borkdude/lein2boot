@@ -51,7 +51,7 @@
        []
        (redirect "/index.html"))
 
-  (resources "/" {:root "public"})
+  (resources "/" {:root ""})
   (resources "/" {:root "/META-INF/resources"})
   (not-found "404"))
 
