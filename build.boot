@@ -26,7 +26,7 @@
 (require '[pandeiro.boot-http :refer :all])
 (require '[animals.api])
 
-#_(task-options!
+(task-options!
  repl {:init-ns 'animals.repl})
 
 (deftask dev []
@@ -41,3 +41,17 @@
    (reload :on-jsload 'animals.main/fig-reload)
    (cljs-repl)
    (cljs)))
+
+(deftask build-cljs []
+  (set-env!
+   :source-paths #(conj % "src-cljs-prod"))
+  (cljs :optimizations :advanced))
+
+(deftask build []
+  (comp
+   (build-cljs)
+   (aot :namespace '#{animals.uberjar})
+   (pom :project 'animals
+        :version "1.0.0")
+   (uber)
+   (jar :main 'animals.uberjar)))

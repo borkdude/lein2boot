@@ -1,4 +1,4 @@
-(defproject animals-crud "0.1.0-SNAPSHOT"
+(defproject animals "1.0.0"
   :description "FIXME: write this!"
   :url "http://example.com/FIXME"
   :dependencies [[org.clojure/clojure "1.6.0"]
@@ -14,11 +14,13 @@
                  [reagent "0.5.0"]
                  [prismatic/schema "0.4.3"]]
 
-  :resource-paths ["assets"]
+  :resource-paths ["assets" "out"]
 
-  :clean-targets ^{:protect false} [:target-path :compile-path "assets/out"]
+  :clean-targets ^{:protect false} [:target-path :compile-path "out"]
 
   :source-paths ["src"]
+
+  :aliases {"build" ["do" "clean" ["cljsbuild" "once" "prod"] "uberjar"]}
 
   :profiles {:dev {:plugins [[lein-cljsbuild "1.0.5"]
                              [lein-figwheel "0.3.1"]]
@@ -27,14 +29,14 @@
 
   :cljsbuild {:builds {:dev {:source-paths ["src-cljs" "src-cljs-dev"]
                              :figwheel {:on-jsload "animals.main/fig-reload"}
-                             :compiler {:output-to "assets/main.js"
-                                        :output-dir "assets/out"
+                             :compiler {:output-to "out/main.js"
+                                        :output-dir "out"
                                         :optimizations :none
-                                        :asset-path "out"
+                                        :asset-path ""
                                         :main "animals.main"
                                         :source-map true}}
                        :prod {:source-paths ["src-cljs" "src-cljs-prod"]                              
-                              :compiler {:output-to "assets/main.js"                                         
+                              :compiler {:output-to "out/main.js"                                         
                                          :optimizations :advanced}}}}
 
   :repl-options {:init-ns animals.server}

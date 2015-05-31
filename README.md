@@ -2,7 +2,7 @@
 
 ## Leiningen
 
-### Running 
+### Developing
 
 In a terminal, start the web server:
 
@@ -13,10 +13,8 @@ In another terminal, start figwheel:
 
     lein clean && lein figwheel dev
 
-Finally browse to
-[http://localhost:8080/index.html](http://localhost:8080/index.html)
-and have fun.
-
+Browse to
+[http://localhost:8080/index.html](http://localhost:8080/index.html).
 
 ### Building production ClojureScript
 
@@ -28,25 +26,32 @@ and have fun.
     lein cljsbuild once prod
     lein uberjar
 
-Run with `java -jar <uberjar>.jar [<port>]`
+or just
+
+    lein build
+
+Run with `java -jar target/animals-1.0.0-standalone.jar [<port>]`
 
 ## Boot
 
-### Running
+### Developing
 
 In a terminal:
 
     boot dev
 
-Browse to http://localhost:3000
+Browse to
+[http://localhost:3000/index.html](http://localhost:3000/index.html).
 
 ### Building production ClojureScript
 
-TODO
+    boot build-cljs
 
 ### Package as uberjar
 
-TODO
+    boot build
+
+Run with `java -jar target/animals-1.0.0.jar [<port>]`
 
 ## License
 

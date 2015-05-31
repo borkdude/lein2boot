@@ -16,6 +16,8 @@
     {:status 500 :message (.getMessage e)}))
 
 (defroutes routes
+  (resources "/" {:root ""})
+  (resources "/" {:root "/META-INF/resources"})
   (ANY "/animals"
        [name species]
        (resource
@@ -50,9 +52,6 @@
   (ANY "/"
        []
        (redirect "/index.html"))
-
-  (resources "/" {:root ""})
-  (resources "/" {:root "/META-INF/resources"})
   (not-found "404"))
 
 (def handler
