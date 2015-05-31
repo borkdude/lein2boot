@@ -1,6 +1,8 @@
 # Animals CRUD
 
-## Running the project
+## Leiningen
+
+### Running 
 
 In a terminal, start the web server:
 
@@ -15,9 +17,32 @@ Finally browse to
 [http://localhost:8080/index.html](http://localhost:8080/index.html)
 and have fun.
 
-## Building for production
+
+### Building production ClojureScript
 
     lein clean && lein cljsbuild once prod
+
+### Package as uberjar
+
+TODO
+
+## Boot
+
+### Running
+
+In a terminal:
+
+    boot dev
+
+Browse to http://localhost:3000
+
+### Building production ClojureScript
+
+TODO
+
+### Package as uberjar
+
+TODO
 
 ## License
 
