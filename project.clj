@@ -19,12 +19,9 @@
                  [reagent "0.5.0"]
                  [prismatic/schema "0.4.3"]]
   
-
   :repl-options {:init-ns animals.server}
 
   :global-vars {*print-length* 20}
-
-  :aliases {"build" ["do" "clean" ["cljsbuild" "once" "prod"] "uberjar"]}
 
   :profiles {:dev {:plugins [[lein-cljsbuild "1.0.5"]
                              [lein-figwheel "0.3.1"]]
@@ -44,4 +41,6 @@
                                          :optimizations :advanced}}}}
 
   :aot [animals.uberjar]
-  :main animals.uberjar)
+  :main animals.uberjar
+
+  :aliases {"build" ["do" "clean" ["cljsbuild" "once" "prod"] "uberjar"]})
