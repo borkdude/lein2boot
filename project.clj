@@ -3,8 +3,8 @@
   :url "http://example.com/FIXME"
 
   :source-paths ["src"]
-  :resource-paths ["assets"]
-  :clean-targets ^{:protect false} [:target-path :compile-path "assets/out"]
+  :resource-paths ["assets" "out"]
+  :clean-targets ^{:protect false} [:target-path :compile-path "out/out"]
 
   :dependencies [[org.clojure/clojure "1.6.0"]
                  [org.clojure/clojurescript "0.0-3211"]
@@ -30,8 +30,8 @@
 
   :cljsbuild {:builds {:dev {:source-paths ["src-cljs" "src-cljs-dev"]
                              :figwheel {:on-jsload "animals.main/fig-reload"}
-                             :compiler {:output-to "assets/main.js"
-                                        :output-dir "assets/out"
+                             :compiler {:output-to "out/main.js"
+                                        :output-dir "out/out"
                                         :optimizations :none
                                         :asset-path "out"
                                         :main "animals.main"
