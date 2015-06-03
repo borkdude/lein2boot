@@ -4,7 +4,7 @@
 
   :source-paths ["src"]
   :resource-paths ["assets" "out"]
-  :clean-targets ^{:protect false} [:target-path :compile-path "out/out"]
+  :clean-targets ^{:protect false} [:target-path :compile-path "out"]
 
   :dependencies [[org.clojure/clojure "1.6.0"]
                  [org.clojure/clojurescript "0.0-3211"]
