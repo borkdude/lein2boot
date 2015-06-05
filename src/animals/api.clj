@@ -16,7 +16,8 @@
     {:status 500 :message (.getMessage e)}))
 
 (defroutes routes
-  (resources "/" {:root ""})
+  (resources "/")
+  (resources "/public") ;; workaround for https://github.com/adzerk-oss/boot-reload/issues/18
   (resources "/" {:root "/META-INF/resources"})
   (ANY "/animals"
        [name species]
