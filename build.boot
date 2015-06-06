@@ -27,7 +27,8 @@
 (require '[animals.api])
 
 (task-options!
- repl {:init-ns 'animals.server})
+ repl {:init-ns 'animals.server
+       :eval '(set! *print-length* 20)})
 
 ;; the following causes an error in the jar task:
 ;; see: https://github.com/boot-clj/boot/issues/218
@@ -39,7 +40,6 @@
   (comp
    (serve :handler 'animals.api/handler
           :reload true
-          :dir "target/"
           :init 'animals.api/init)
    (watch)
    (reload :on-jsload 'animals.main/fig-reload)

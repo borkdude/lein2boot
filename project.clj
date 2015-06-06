@@ -25,9 +25,6 @@
 
   :plugins [[lein-cljsbuild "1.0.5"]
             [lein-figwheel "0.3.1"]]
-  
-  :figwheel {:http-server-root "public"
-             :port 3449}
 
   :cljsbuild {:builds {:dev {:source-paths ["src-cljs" "src-cljs-dev"]
                              :figwheel {:on-jsload "animals.main/fig-reload"}
