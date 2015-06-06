@@ -30,10 +30,6 @@
  repl {:init-ns 'animals.server
        :eval '(set! *print-length* 20)})
 
-;; the following causes an error in the jar task:
-;; see: https://github.com/boot-clj/boot/issues/218
-;; (alter-var-root (var *print-length*) (fn [v] 20))
-
 (deftask dev []
   (set-env!
    :source-paths #(conj % "src-cljs-dev"))
