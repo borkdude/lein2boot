@@ -1,6 +1,7 @@
 # lein2boot
 
 This is a sample project that demonstrates how to achieve the same development and build process in leiningen and boot.
+There is a blog post about it [here](http://blog.michielborkent.nl/blog/2015/06/06/from-leiningen-to-boot/).
 
 Both project configurations support:
 
